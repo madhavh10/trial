@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>John's Cookies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p><b><center class="worl">Welcome to John's Cookies!!</center></b></p>
+  <div class="wrapper">
+    <img src="cookie.png" alt="">
+    <div class="content">
+      <header>Flavours of cookies</header>
+      <p>I like chocolate cookies.Click below to know more flavours</p>
+      <div class="buttons">
+        <button class="item">Click me</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cookieBox = document.querySelector(".wrapper"),
+    acceptBtn = cookieBox.querySelector("button");
+
+    acceptBtn.onclick = ()=>{
+      //setting cookie for 1 month, after one month it'll be expired automatically
+      document.cookie = "CookieBy=WGlvbW9yYUNURnt5MHVfZzB0X20zfQ==; max-age="+60*60*60*24*30;
+      if(document.cookie){ //if cookie is set
+        cookieBox.classList.add("hide"); //hide cookie box
+      }else{ //if cookie not set then alert an error
+        alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+      }
+    }
+    let checkCookie = document.cookie.indexOf("CookieBy=Hello"); //checking our cookie
+    //if cookie is set then hide the cookie box else show it
+    checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+  </script>
+
+</body>
+</html>
